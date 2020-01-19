@@ -10,10 +10,9 @@ using Statistics
 gr(reuse = true)
 
 # SET PATHS AND FILE NAME
-cd("/home/jeremy/Projects/MyProjects/Sleep MLP Project/julia_version/")
 dir = pwd()
-file_train = "OCT_Made_up_data.csv"
-file_test = "OCT_Made_up_test.csv"
+file_train = joinpath(dir, "../Data/OCT_Made_up_data.csv")
+file_test = joinpath(dir, "../Data/OCT_Made_up_test.csv")
 println("Working in the following directory:")
 println(dir)
 println("Using Training File:")
