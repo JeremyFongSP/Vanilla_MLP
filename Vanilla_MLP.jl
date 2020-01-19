@@ -118,18 +118,6 @@ for l = 1:EPOCHS
         r1 = drop(H1)
         r2 = drop(H2)
 
-        # BATCH NORMALIZATION
-        # Batch norm doesn't work in this case because we don't
-        # perform all of the calculations at the same time, we
-        # do them one-by-one and add up the δs once backproped
-        # for every single example.
-        # x_batch = Array{Float64}(undef,(batch_size,400))
-        # batch = [pop!(ROW_ARRAY) for i = 1:batch_size]
-        # for i = 1:batch_size
-        #     x_batch[i,:] = X_array[batch[i],:]
-        # end
-        # z_norm = normalizing(x_batch)
-
         for j = 1:batch_size
             # SELECT EXAMPLE
             k = pop!(ROW_ARRAY)
@@ -225,7 +213,6 @@ for j = 1:N_DATA_test
 
     # SELECT EXAMPLE (in order this time)
     k = pop!(ROW_ARRAY_test)
-    # x = convert(Array, X_test[k,:])
     x = X_array_test[k,:]
 
     # ANSWER KEY
